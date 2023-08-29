@@ -16,6 +16,7 @@ public class Asm01 {
                 int checkedNumber = Integer.parseInt(number);
                 switch (checkedNumber) {
                     case 1:
+                        // nên tách ra một hàm
                         displayAuthentication();
                         System.out.print("Chọn mã bảo mật: ");
                         while (input.hasNext()) {
@@ -29,6 +30,8 @@ public class Asm01 {
                                         while (input.hasNext()) {
                                             String verificationCode = input.nextLine();
                                             if (checkVerificationCode(verificationCode, randomCode)) {
+                                                // lặp code với đoạn if (checkSixCharacterCode(verificationCode, randomAlphanumericCode)) ở phía dưới
+                                                // nên tách đoạn này ra một hàm
                                                 System.out.print("Nhập số CCCD: ");
                                                 while (input.hasNext()) {
                                                     String cccdNumber = input.nextLine();
@@ -60,6 +63,7 @@ public class Asm01 {
                                                         System.out.print("Nhập số CCCD: ");
                                                     }
                                                 }
+                                            // hết đoạn lặp code
                                             } else {
                                                 System.out.println("Nhập mã xác thực: " + randomCode);
                                             }
@@ -70,6 +74,8 @@ public class Asm01 {
                                         while (input.hasNext()) {
                                             String verificationCode = input.nextLine();
                                             if (checkSixCharacterCode(verificationCode, randomAlphanumericCode)) {
+                                                // lặp code với đoạn if (checkVerificationCode(verificationCode, randomCode)) ở phía trên
+                                                // nên tách ra một hàm
                                                 System.out.print("Nhập số CCCD: ");
                                                 while (input.hasNext()) {
                                                     String cccdNumber = input.nextLine();
@@ -101,6 +107,7 @@ public class Asm01 {
                                                         System.out.print("Nhập số CCCD: ");
                                                     }
                                                 }
+                                            // hết đoạn lặp code
                                             }
                                             else {
                                                 System.out.println("Nhập mã xác thực: " + randomAlphanumericCode);
@@ -151,6 +158,7 @@ public class Asm01 {
 
         try {
             inputNumber = Integer.parseInt(number);
+            // có thể đưa vào khối default của lệnh switch(checkNumber)
             if (inputNumber > 1 || inputNumber < 0) {
                 System.out.println("Nhập chức năng không đúng. Vui lòng nhập lại!");
                 return false;
@@ -166,6 +174,7 @@ public class Asm01 {
 
         try {
             inputNumber = Integer.parseInt(number);
+            // có thể đưa vào khối default của lệnh switch(inputFunctionNumber)
             if (inputNumber > 3 || inputNumber < 0) {
                 System.out.println("Chọn chức năng không đúng. Vui lòng nhập lại!");
                 return false;
@@ -199,6 +208,7 @@ public class Asm01 {
             if (inputString.length() == 11) {
                 return true;
             } else {
+                // Thiếu chức năng nhập 'No' để thoát
                 System.out.println("Số CCCD không hợp lệ. Vui lòng nhập lại!");
                 return false;
             }
@@ -297,6 +307,7 @@ public class Asm01 {
         code.put(20, "031");
         code.put(21, "033");
         code.put(22, "034");
+        // thiếu key 23;
         code.put(24, "036");
         code.put(25, "037");
         code.put(26, "038");
